@@ -1,0 +1,599 @@
+{
+  "clip_start_ms": 0,
+  "clip_end_ms": 30000,
+  "captions": [
+    {
+      "text": "Oh, hey, excuse me. Um, are you",
+      "start_time_ms": 1700,
+      "end_time_ms": 3500,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "Oh,",
+          "start_time_ms": 1700,
+          "end_time_ms": 1860
+        },
+        {
+          "word": "hey,",
+          "start_time_ms": 1860,
+          "end_time_ms": 2020
+        },
+        {
+          "word": "excuse",
+          "start_time_ms": 2020,
+          "end_time_ms": 2340
+        },
+        {
+          "word": "me.",
+          "start_time_ms": 2340,
+          "end_time_ms": 2620
+        },
+        {
+          "word": "Um,",
+          "start_time_ms": 2660,
+          "end_time_ms": 3140
+        },
+        {
+          "word": "are",
+          "start_time_ms": 3220,
+          "end_time_ms": 3340
+        },
+        {
+          "word": "you",
+          "start_time_ms": 3340,
+          "end_time_ms": 3500
+        }
+      ]
+    },
+    {
+      "text": "a crypto exchange?",
+      "start_time_ms": 3500,
+      "end_time_ms": 4500,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "a",
+          "start_time_ms": 3500,
+          "end_time_ms": 3580
+        },
+        {
+          "word": "crypto",
+          "start_time_ms": 3580,
+          "end_time_ms": 3860
+        },
+        {
+          "word": "exchange?",
+          "start_time_ms": 3860,
+          "end_time_ms": 4500
+        }
+      ]
+    },
+    {
+      "text": "Yep, that's correct. You can call me",
+      "start_time_ms": 4620,
+      "end_time_ms": 6260,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "Yep,",
+          "start_time_ms": 4620,
+          "end_time_ms": 4900
+        },
+        {
+          "word": "that's",
+          "start_time_ms": 4900,
+          "end_time_ms": 5100
+        },
+        {
+          "word": "correct.",
+          "start_time_ms": 5100,
+          "end_time_ms": 5580
+        },
+        {
+          "word": "You",
+          "start_time_ms": 5580,
+          "end_time_ms": 5740
+        },
+        {
+          "word": "can",
+          "start_time_ms": 5740,
+          "end_time_ms": 5900
+        },
+        {
+          "word": "call",
+          "start_time_ms": 5900,
+          "end_time_ms": 6100
+        },
+        {
+          "word": "me",
+          "start_time_ms": 6100,
+          "end_time_ms": 6260
+        }
+      ]
+    },
+    {
+      "text": "SBF. I'm a philanthropist and FTX is",
+      "start_time_ms": 6260,
+      "end_time_ms": 8980,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "SBF.",
+          "start_time_ms": 6260,
+          "end_time_ms": 6860
+        },
+        {
+          "word": "I'm",
+          "start_time_ms": 6900,
+          "end_time_ms": 7020
+        },
+        {
+          "word": "a",
+          "start_time_ms": 7020,
+          "end_time_ms": 7100
+        },
+        {
+          "word": "philanthropist",
+          "start_time_ms": 7100,
+          "end_time_ms": 7940
+        },
+        {
+          "word": "and",
+          "start_time_ms": 8180,
+          "end_time_ms": 8460
+        },
+        {
+          "word": "FTX",
+          "start_time_ms": 8460,
+          "end_time_ms": 8900
+        },
+        {
+          "word": "is",
+          "start_time_ms": 8900,
+          "end_time_ms": 8980
+        }
+      ]
+    },
+    {
+      "text": "the third largest crypto exchange trusted by",
+      "start_time_ms": 8980,
+      "end_time_ms": 11100,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "the",
+          "start_time_ms": 8980,
+          "end_time_ms": 9100
+        },
+        {
+          "word": "third",
+          "start_time_ms": 9100,
+          "end_time_ms": 9380
+        },
+        {
+          "word": "largest",
+          "start_time_ms": 9380,
+          "end_time_ms": 9860
+        },
+        {
+          "word": "crypto",
+          "start_time_ms": 9860,
+          "end_time_ms": 10140
+        },
+        {
+          "word": "exchange",
+          "start_time_ms": 10140,
+          "end_time_ms": 10620
+        },
+        {
+          "word": "trusted",
+          "start_time_ms": 10620,
+          "end_time_ms": 10980
+        },
+        {
+          "word": "by",
+          "start_time_ms": 10980,
+          "end_time_ms": 11100
+        }
+      ]
+    },
+    {
+      "text": "the one and only Tom Brady.",
+      "start_time_ms": 11100,
+      "end_time_ms": 12700,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "the",
+          "start_time_ms": 11100,
+          "end_time_ms": 11220
+        },
+        {
+          "word": "one",
+          "start_time_ms": 11220,
+          "end_time_ms": 11420
+        },
+        {
+          "word": "and",
+          "start_time_ms": 11420,
+          "end_time_ms": 11540
+        },
+        {
+          "word": "only",
+          "start_time_ms": 11540,
+          "end_time_ms": 11940
+        },
+        {
+          "word": "Tom",
+          "start_time_ms": 11980,
+          "end_time_ms": 12220
+        },
+        {
+          "word": "Brady.",
+          "start_time_ms": 12220,
+          "end_time_ms": 12700
+        }
+      ]
+    },
+    {
+      "text": "Yeah, well, I got $8 billion here",
+      "start_time_ms": 12940,
+      "end_time_ms": 14940,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "Yeah,",
+          "start_time_ms": 12940,
+          "end_time_ms": 13220
+        },
+        {
+          "word": "well,",
+          "start_time_ms": 13220,
+          "end_time_ms": 13540
+        },
+        {
+          "word": "I",
+          "start_time_ms": 13540,
+          "end_time_ms": 13620
+        },
+        {
+          "word": "got",
+          "start_time_ms": 13620,
+          "end_time_ms": 13860
+        },
+        {
+          "word": "$8",
+          "start_time_ms": 13860,
+          "end_time_ms": 14300
+        },
+        {
+          "word": "billion",
+          "start_time_ms": 14300,
+          "end_time_ms": 14660
+        },
+        {
+          "word": "here",
+          "start_time_ms": 14660,
+          "end_time_ms": 14940
+        }
+      ]
+    },
+    {
+      "text": "and I just need to put it",
+      "start_time_ms": 14940,
+      "end_time_ms": 16180,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "and",
+          "start_time_ms": 14940,
+          "end_time_ms": 15100
+        },
+        {
+          "word": "I",
+          "start_time_ms": 15100,
+          "end_time_ms": 15180
+        },
+        {
+          "word": "just",
+          "start_time_ms": 15180,
+          "end_time_ms": 15460
+        },
+        {
+          "word": "need",
+          "start_time_ms": 15460,
+          "end_time_ms": 15700
+        },
+        {
+          "word": "to",
+          "start_time_ms": 15700,
+          "end_time_ms": 15820
+        },
+        {
+          "word": "put",
+          "start_time_ms": 15820,
+          "end_time_ms": 16060
+        },
+        {
+          "word": "it",
+          "start_time_ms": 16060,
+          "end_time_ms": 16180
+        }
+      ]
+    },
+    {
+      "text": "somewhere safe where I can trade. Uh,",
+      "start_time_ms": 16180,
+      "end_time_ms": 18180,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "somewhere",
+          "start_time_ms": 16180,
+          "end_time_ms": 16460
+        },
+        {
+          "word": "safe",
+          "start_time_ms": 16460,
+          "end_time_ms": 16820
+        },
+        {
+          "word": "where",
+          "start_time_ms": 16820,
+          "end_time_ms": 16940
+        },
+        {
+          "word": "I",
+          "start_time_ms": 16940,
+          "end_time_ms": 17020
+        },
+        {
+          "word": "can",
+          "start_time_ms": 17020,
+          "end_time_ms": 17180
+        },
+        {
+          "word": "trade.",
+          "start_time_ms": 17180,
+          "end_time_ms": 17900
+        },
+        {
+          "word": "Uh,",
+          "start_time_ms": 18140,
+          "end_time_ms": 18180
+        }
+      ]
+    },
+    {
+      "text": "can you do that for me?",
+      "start_time_ms": 18180,
+      "end_time_ms": 19140,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "can",
+          "start_time_ms": 18180,
+          "end_time_ms": 18380
+        },
+        {
+          "word": "you",
+          "start_time_ms": 18380,
+          "end_time_ms": 18460
+        },
+        {
+          "word": "do",
+          "start_time_ms": 18460,
+          "end_time_ms": 18580
+        },
+        {
+          "word": "that",
+          "start_time_ms": 18580,
+          "end_time_ms": 18780
+        },
+        {
+          "word": "for",
+          "start_time_ms": 18780,
+          "end_time_ms": 18900
+        },
+        {
+          "word": "me?",
+          "start_time_ms": 18900,
+          "end_time_ms": 19140
+        }
+      ]
+    },
+    {
+      "text": "Of course. My goal, my one goal",
+      "start_time_ms": 19340,
+      "end_time_ms": 21580,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "Of",
+          "start_time_ms": 19340,
+          "end_time_ms": 19460
+        },
+        {
+          "word": "course.",
+          "start_time_ms": 19460,
+          "end_time_ms": 19940
+        },
+        {
+          "word": "My",
+          "start_time_ms": 19940,
+          "end_time_ms": 20180
+        },
+        {
+          "word": "goal,",
+          "start_time_ms": 20180,
+          "end_time_ms": 20580
+        },
+        {
+          "word": "my",
+          "start_time_ms": 20620,
+          "end_time_ms": 20820
+        },
+        {
+          "word": "one",
+          "start_time_ms": 20820,
+          "end_time_ms": 21180
+        },
+        {
+          "word": "goal",
+          "start_time_ms": 21180,
+          "end_time_ms": 21580
+        }
+      ]
+    },
+    {
+      "text": "is to do right by customers. I'm",
+      "start_time_ms": 21780,
+      "end_time_ms": 24460,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "is",
+          "start_time_ms": 21780,
+          "end_time_ms": 22020
+        },
+        {
+          "word": "to",
+          "start_time_ms": 22020,
+          "end_time_ms": 22100
+        },
+        {
+          "word": "do",
+          "start_time_ms": 22100,
+          "end_time_ms": 22300
+        },
+        {
+          "word": "right",
+          "start_time_ms": 22300,
+          "end_time_ms": 22540
+        },
+        {
+          "word": "by",
+          "start_time_ms": 22540,
+          "end_time_ms": 22700
+        },
+        {
+          "word": "customers.",
+          "start_time_ms": 22700,
+          "end_time_ms": 23500
+        },
+        {
+          "word": "I'm",
+          "start_time_ms": 24340,
+          "end_time_ms": 24460
+        }
+      ]
+    },
+    {
+      "text": "a philanthropist.",
+      "start_time_ms": 24460,
+      "end_time_ms": 25420,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "a",
+          "start_time_ms": 24460,
+          "end_time_ms": 24540
+        },
+        {
+          "word": "philanthropist.",
+          "start_time_ms": 24540,
+          "end_time_ms": 25420
+        }
+      ]
+    },
+    {
+      "text": "Okay, well, um, this $8 billion is",
+      "start_time_ms": 25660,
+      "end_time_ms": 28260,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "Okay,",
+          "start_time_ms": 25660,
+          "end_time_ms": 25940
+        },
+        {
+          "word": "well,",
+          "start_time_ms": 25940,
+          "end_time_ms": 26340
+        },
+        {
+          "word": "um,",
+          "start_time_ms": 26380,
+          "end_time_ms": 26700
+        },
+        {
+          "word": "this",
+          "start_time_ms": 26740,
+          "end_time_ms": 27060
+        },
+        {
+          "word": "$8",
+          "start_time_ms": 27060,
+          "end_time_ms": 27580
+        },
+        {
+          "word": "billion",
+          "start_time_ms": 27580,
+          "end_time_ms": 27980
+        },
+        {
+          "word": "is",
+          "start_time_ms": 27980,
+          "end_time_ms": 28260
+        }
+      ]
+    },
+    {
+      "text": "really important to me.",
+      "start_time_ms": 28260,
+      "end_time_ms": 29460,
+      "speaker_tag": "1",
+      "words": [
+        {
+          "word": "really",
+          "start_time_ms": 28260,
+          "end_time_ms": 28580
+        },
+        {
+          "word": "important",
+          "start_time_ms": 28580,
+          "end_time_ms": 29100
+        },
+        {
+          "word": "to",
+          "start_time_ms": 29100,
+          "end_time_ms": 29180
+        },
+        {
+          "word": "me.",
+          "start_time_ms": 29180,
+          "end_time_ms": 29460
+        }
+      ]
+    },
+    {
+      "text": "I understand.",
+      "start_time_ms": 29820,
+      "end_time_ms": 30700,
+      "speaker_tag": "2",
+      "words": [
+        {
+          "word": "I",
+          "start_time_ms": 29820,
+          "end_time_ms": 29940
+        },
+        {
+          "word": "understand.",
+          "start_time_ms": 29940,
+          "end_time_ms": 30700
+        }
+      ]
+    }
+  ]
+}
