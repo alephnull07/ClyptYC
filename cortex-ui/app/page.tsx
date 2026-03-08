@@ -9,10 +9,11 @@ export default function Page() {
   const router = useRouter();
   const [url, setUrl] = useState("");
   const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const canSubmit = useMemo(() => url.trim().length > 0, [url]);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const value = url.trim();
 
@@ -21,9 +22,26 @@ export default function Page() {
       return;
     }
 
-    setError("");
-    localStorage.setItem("clypt:lastVideoUrl", value);
-    router.push(`/graph?video=${encodeURIComponent(value)}`);
+    setSubmitting(true);
+    try {
+      const response = await fetch("/api/pipeline/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ videoUrl: value }),
+      });
+      const data = (await response.json()) as { ok?: boolean; error?: string; jobId?: string };
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || "Could not start pipeline job.");
+      }
+
+      setError("");
+      localStorage.setItem("clypt:lastVideoUrl", value);
+      router.push(`/graph?video=${encodeURIComponent(value)}&job=${encodeURIComponent(data.jobId ?? "")}`);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to start pipeline.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -59,10 +77,10 @@ export default function Page() {
             />
             <button
               type="submit"
-              disabled={!canSubmit}
+              disabled={!canSubmit || submitting}
               className="h-12 rounded-xl border border-[#0f766e] bg-[#115e59] px-5 text-sm font-medium text-[#ecfeff] transition hover:bg-[#0f766e] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              Open Cortex map
+              {submitting ? "Starting pipeline..." : "Open Cortex map"}
             </button>
           </div>
           {error && <p className="mt-2 text-xs text-[#fda4af]">{error}</p>}

@@ -63,6 +63,17 @@ interface SelectedEdge {
   to_node_start_time: number;
 }
 
+interface GraphResponse {
+  nodes?: RawNode[];
+  edges?: RawEdge[];
+  payloads?: Payload[];
+}
+
+interface PipelineStatusResponse {
+  status?: "idle" | "running" | "completed" | "failed";
+  error?: string;
+}
+
 // ─── ZoomController ───────────────────────────────────────────────────────────
 // Rendered inside <ReactFlow> so it has access to the flow context via useReactFlow.
 
@@ -217,20 +228,56 @@ export default function CortexGraph() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [clipsOpen, setClipsOpen] = useState(false);
+  const [pipelineStatus, setPipelineStatus] = useState<"idle" | "running" | "completed" | "failed">("idle");
+  const [pipelineError, setPipelineError] = useState("");
+  const [loadingGraph, setLoadingGraph] = useState(true);
 
   const zoomRef = useRef<ZoomHandle>(null);
 
-  useEffect(() => {
-    fetch("/api/graph")
-      .then((r) => r.json())
-      .then(({ nodes: rn, edges: re, payloads: pl }) => {
-        const pl2 = pl ?? [];
-        setRawNodes(rn);
-        setPayloads(pl2);
-        setNodes(buildFlowNodes(rn, pl2));
-        setEdges(buildFlowEdges(re));
-      });
+  const loadGraph = useCallback(async () => {
+    const response = await fetch("/api/graph");
+    const data = (await response.json()) as GraphResponse;
+    const rn = data.nodes ?? [];
+    const re = data.edges ?? [];
+    const pl = data.payloads ?? [];
+    setRawNodes(rn);
+    setPayloads(pl);
+    setNodes(buildFlowNodes(rn, pl));
+    setEdges(buildFlowEdges(re));
   }, [setEdges, setNodes]);
+
+  useEffect(() => {
+    let cancelled = false;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+
+    async function poll() {
+      try {
+        const statusResponse = await fetch("/api/pipeline/status");
+        const statusData = (await statusResponse.json()) as PipelineStatusResponse;
+        if (cancelled) return;
+
+        const status = statusData.status ?? "idle";
+        setPipelineStatus(status);
+        setPipelineError(statusData.error ?? "");
+
+        await loadGraph();
+      } catch (error) {
+        if (cancelled) return;
+        setPipelineStatus("failed");
+        setPipelineError(error instanceof Error ? error.message : "Failed to load graph.");
+      } finally {
+        if (!cancelled) setLoadingGraph(false);
+      }
+    }
+
+    poll();
+    intervalId = setInterval(poll, 5000);
+
+    return () => {
+      cancelled = true;
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [loadGraph]);
 
   const onConnect = useCallback(
     (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
@@ -328,6 +375,19 @@ export default function CortexGraph() {
           </div>
 
           <div className="flex items-center gap-3 text-xs">
+            <span
+              className={`rounded border px-2 py-1 ${
+                pipelineStatus === "running"
+                  ? "border-[#f59e0b] bg-[#78350f66] text-[#fcd34d]"
+                  : pipelineStatus === "completed"
+                  ? "border-[#14532d] bg-[#052e2688] text-[#5eead4]"
+                  : pipelineStatus === "failed"
+                  ? "border-[#7f1d1d] bg-[#450a0a88] text-[#fda4af]"
+                  : "border-[#334155] bg-[#0f172acc] text-[#cbd5e1]"
+              }`}
+            >
+              pipeline: {pipelineStatus}
+            </span>
             <span className="rounded border border-[#334155] bg-[#0f172acc] px-2 py-1 text-[#cbd5e1]">
               {nodes.length} nodes
             </span>
@@ -348,7 +408,7 @@ export default function CortexGraph() {
             )}
             <button
               onClick={onSave}
-              disabled={saving}
+              disabled={saving || rawNodes.length === 0}
               className="rounded border border-[#0f766e] bg-[#115e59] px-3 py-1.5 font-medium text-[#ecfeff] transition hover:bg-[#0f766e] disabled:opacity-60"
             >
               {saving ? "Saving..." : saved ? "Saved" : "Save"}
@@ -356,6 +416,20 @@ export default function CortexGraph() {
           </div>
         </div>
       </header>
+
+      {pipelineError && (
+        <div className="absolute left-1/2 top-[60px] z-20 -translate-x-1/2 rounded border border-[#7f1d1d] bg-[#450a0aee] px-3 py-2 text-xs text-[#fecaca] shadow-lg">
+          {pipelineError}
+        </div>
+      )}
+
+      {loadingGraph && (
+        <div className="absolute inset-0 z-20 flex items-center justify-center bg-[#020617aa] backdrop-blur-[1px]">
+          <div className="rounded border border-[#334155] bg-[#0f172a] px-4 py-3 text-sm text-[#cbd5e1]">
+            Loading graph data...
+          </div>
+        </div>
+      )}
 
       <div className="absolute bottom-4 left-4 z-10 flex w-[280px] flex-col gap-3">
         <aside className="rounded border border-[#1f2937] bg-[#0b1220e8] p-3 backdrop-blur">
