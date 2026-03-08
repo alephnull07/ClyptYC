@@ -9,6 +9,8 @@ import {
 import { makeTransform, scale } from "@remotion/animation-utils";
 import { Captions } from "./Captions";
 import type { Caption } from "./Captions";
+import { MotionGraphics } from "./MotionGraphics";
+import { FunnyCaption } from "./FunnyCaption";
 
 export interface TrackingFrame {
   time_ms: number;
@@ -31,6 +33,8 @@ export interface ClyptViralShortProps extends Record<string, unknown> {
   tracking: TrackingFrame[];
   speakerTimeline?: SpeakerSegment[];
   captions?: Caption[];
+  isPodcast?: boolean;
+  funnyCaption?: string;
 }
 
 /** Find the active speaker_tag at a given timestamp. */
@@ -140,6 +144,8 @@ export const ClyptViralShort: React.FC<ClyptViralShortProps> = ({
   tracking,
   speakerTimeline = [],
   captions = [],
+  isPodcast = false,
+  funnyCaption = "",
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -148,10 +154,10 @@ export const ClyptViralShort: React.FC<ClyptViralShortProps> = ({
     speakerTimeline.length > 0 &&
     tracking.some((f) => f.speaker_tag != null);
 
-  // ── Detect speaker transitions and apply spring easing ──
-  // We compute the smoothed position by scanning forward from frame 0,
-  // detecting jumps, and applying spring transitions. This is pure and
-  // deterministic (same output for the same frame number).
+  // ── Camera tracking (podcast only) ───────────────────────────────────────
+  // For non-podcast content, skip the per-frame scan entirely and keep the
+  // camera centred. This saves CPU and avoids unintended panning on clips
+  // where no tracking data was collected.
   let smoothX = 0.5;
   let smoothY = 0.5;
   let prevTargetX = 0.5;
@@ -162,7 +168,7 @@ export const ClyptViralShort: React.FC<ClyptViralShortProps> = ({
   let transitionToX = 0.5;
   let transitionToY = 0.5;
 
-  for (let f = 0; f <= frame; f++) {
+  for (let f = 0; isPodcast && f <= frame; f++) {
     const ms = clipStartMs + (f / fps) * 1000;
 
     // If speaker data is available, filter tracking to the active speaker
@@ -228,8 +234,16 @@ export const ClyptViralShort: React.FC<ClyptViralShortProps> = ({
           transformOrigin: "center center",
         }}
       />
+      {funnyCaption && <FunnyCaption text={funnyCaption} />}
       {captions.length > 0 && (
         <Captions captions={captions} clipStartMs={clipStartMs} />
+      )}
+      {captions.length > 0 && (
+        <MotionGraphics
+          captions={captions}
+          clipStartMs={clipStartMs}
+          isPodcast={isPodcast}
+        />
       )}
     </AbsoluteFill>
   );

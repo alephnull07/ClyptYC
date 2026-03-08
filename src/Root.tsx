@@ -63,6 +63,8 @@ export const RemotionRoot: React.FC = () => {
         const speakerTimeline: SpeakerSegment[] =
           payload.active_speaker_timeline || [];
         const captions: Caption[] = (payload.captions as Caption[]) || [];
+        const isPodcast: boolean = (payload.is_podcast as boolean) ?? false;
+        const funnyCaption: string = (payload.funny_caption as string) || "";
 
         return (
           <Composition
@@ -80,6 +82,8 @@ export const RemotionRoot: React.FC = () => {
               tracking,
               speakerTimeline,
               captions,
+              isPodcast,
+              funnyCaption,
             }}
           />
         );
